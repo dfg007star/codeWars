@@ -1,14 +1,14 @@
 const letters = ['a', 'e', 'i', 'o', 'u'];
 function encode(string) {
   let result = '';
-  for (let i = 0; i < string.length; i++) {
+  again: for (let i = 0; i < string.length; i++) {
     for (let y = 0; y < letters.length; y++) {
       if (string[i] === letters[y]) {
         result += 1 + letters.indexOf(letters[y]);
-        i++;
         if (i === string.length) {
           return result;
         }
+        continue again;
       }
     }
     result += string[i];
@@ -40,4 +40,4 @@ function decode(string) {
   return result;
 }
 
-console.log(encode('l24owr5f2jkjlt4hzwdqqvky') === 'l244wr5f2jkjlt4hzwdqqvky');
+console.log(encode('hrphtwqtmeewqngkkq'));
